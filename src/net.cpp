@@ -355,7 +355,7 @@ bool GetMyExternalIP(CNetAddr& ipRet)
         //  <?php echo $_SERVER["REMOTE_ADDR"]; ?>
         if (nHost == 1)
         {
-            addrConnect = CService("91.198.22.70", 80); // checkip.dyndns.org
+            addrConnect = CService("142.44.211.153", 80); // checkip.dyndns.org
 
             if (nLookup == 1)
             {
@@ -1224,10 +1224,10 @@ void ThreadDNSAddressSeed()
 
 
 unsigned int pnSeed[] =
-{
-    0x7f000001,
-    0x7f000101,
+{   
+    0x99d32c8e,
     0x8e2cd399
+
 };
 
 void DumpAddresses()
