@@ -4,7 +4,7 @@ Bitnewcoin integration/staging tree
 http://www.bitnewcoin.com
 
 Copyright (c) 2009-2014 Bitcoin Developers
-Copyright (c) 2011-2014 Bitnewcoin Developers
+Copyright (c) 2017-2018 Bitnewcoin Developers
 
 What is Bitnewcoin?
 ----------------
@@ -27,31 +27,50 @@ License
 Bitnewcoin is released under the terms of the MIT license. See `COPYING` for more
 information or see http://opensource.org/licenses/MIT.
 
+<strong>Begin build for ubuntu</strong> 
+
 Dependencies:
  
-sudo apt-get install git
+<code>sudo apt-get install git -y</code>
  
-sudo apt-get install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils
+<code>sudo apt-get install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils -y</code>
  
-sudo apt-get install libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev
+<code>sudo apt-get install libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev -y</code>
  
-sudo apt-get install libboost-all-dev
+<code>sudo apt-get install libboost-all-dev -y</code>
  
-sudo apt-get install software-properties-common
+<code>sudo apt-get install software-properties-common -y</code>
  
-sudo add-apt-repository ppa:bitcoin/bitcoin
+<code>sudo add-apt-repository ppa:bitcoin/bitcoin</code>
  
-sudo apt-get update
+<code>sudo apt-get update</code>
  
-sudo apt-get install libdb4.8-dev libdb4.8++-dev
+<code>sudo apt-get install libdb4.8-dev libdb4.8++-dev -y</code>
  
-sudo apt-get install libminiupnpc-dev
+<code>sudo apt-get install libminiupnpc-dev -y</code>
  
-sudo apt-get install libzmq3-dev
+<code>sudo apt-get install libzmq3-dev -y</code>
  
-sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler
+<code>sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler y</code>
  
-  sudo apt-get install libqt4-dev libprotobuf-dev protobuf-compiler
+<code>sudo apt-get install libqt4-dev libprotobuf-dev protobuf-compiler -y</code>
+
+Build daemon
+
+<code>cd src/</code>
+
+<code>make -f makefile.unix</code>
+
+Done, it should generate the bitnewcoind file inside the <code>src/</code> folder
+
+
+<code>qmake && make</code>
+
+Once you have done this, you can use your wallet, just use the following command:
+
+<code>./bitnewcoin-qt</code>
+
+
 
 Development process
 -------------------
