@@ -28,8 +28,9 @@ Bitnewcoin is released under the terms of the MIT license. See `COPYING` for mor
 information or see http://opensource.org/licenses/MIT.
 
 <strong>Begin build for ubuntu</strong> 
+<h3>You can choose one of the installation options of dependencies, both are the same, the difference is that option 2 is requires fewer confirmations and installs almost everything alone.</h3>
 
-Dependencies:
+Dependencies option 1:
  
 <code>sudo apt-get install git -y</code>
  
@@ -54,6 +55,10 @@ Dependencies:
 <code>sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler y</code>
  
 <code>sudo apt-get install libqt4-dev libprotobuf-dev protobuf-compiler -y</code>
+
+Dependecies option 2 (recomended)
+
+<code>sudo apt-get install git -y &&  sudo apt-get install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils -y &&  sudo apt-get install libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev -y &&  sudo apt-get install libboost-all-dev -y &&  sudo apt-get install software-properties-common -y &&  sudo add-apt-repository ppa:bitcoin/bitcoin  &&  sudo apt-get update  &&  sudo apt-get install libdb4.8-dev libdb4.8++-dev -y &&  sudo apt-get install libminiupnpc-dev -y &&  sudo apt-get install libzmq3-dev -y &&  sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler -y &&  sudo apt-get install libqt4-dev libprotobuf-dev protobuf-compiler -y</code>
 
 Build daemon
 
