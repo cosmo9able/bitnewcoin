@@ -1,4 +1,5 @@
 // Copyright (c) 2009-2012 The Bitcoin developers
+// Copyright (c) 2011-2013 The PPCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -7,12 +8,14 @@
 
 #include "checkpoints.h"
 
+#include "db.h"
 #include "main.h"
+#include "txdb.h"
 #include "uint256.h"
 
 namespace Checkpoints
 {
-    typedef std::map<int, uint256> MapCheckpoints;
+    typedef std::map<int, uint256> MapCheckpoints;   // hardened checkpoints
 
     // How many times we expect transactions after the last checkpoint to
     // be slower. This number is a compromise, as it can't be accurate for
@@ -35,7 +38,7 @@ namespace Checkpoints
     // + Contains no strange transactions
     static MapCheckpoints mapCheckpoints =
         boost::assign::map_list_of
-        (  0, uint256("0x14bea69d085fec427c88159cf415efb5114bee269cd5dd4928a6d5faec323933"))
+        ( 0, uint256("0x14bea69d085fec427c88159cf415efb5114bee269cd5dd4928a6d5faec323933"))
         ;
     static const CCheckpointData data = {
         &mapCheckpoints,
@@ -45,9 +48,9 @@ namespace Checkpoints
         1.0     // * estimated number of transactions per day after checkpoint
     };
 
-    static MapCheckpoints mapCheckpointsTestnet =
+    static MapCheckpoints mapCheckpointsTestnet = 
         boost::assign::map_list_of
-        (   0, uint256("0xe8c81e7c274db6a0f89642ef5fd68539745004ebf0fd230b17a169536d0f1455"))
+        ( 0, uint256("0xe8c81e7c274db6a0f89642ef5fd68539745004ebf0fd230b17a169536d0f1455"))
         ;
     static const CCheckpointData dataTestnet = {
         &mapCheckpointsTestnet,
@@ -63,7 +66,7 @@ namespace Checkpoints
             return data;
     }
 
-    bool CheckBlock(int nHeight, const uint256& hash)
+    bool CheckHardened(int nHeight, const uint256& hash)
     {
         if (!GetBoolArg("-checkpoints", true))
             return true;
@@ -131,5 +134,11 @@ namespace Checkpoints
                 return t->second;
         }
         return NULL;
+    }
+
+    uint256 GetLatestHardenedCheckpoint()
+    {
+        const MapCheckpoints& checkpoints = *Checkpoints().mapCheckpoints;
+        return (checkpoints.rbegin()->second);
     }
 }
