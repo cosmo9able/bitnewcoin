@@ -28,7 +28,6 @@ Bitnewcoin is released under the terms of the MIT license. See `COPYING` for mor
 information or see http://opensource.org/licenses/MIT.
 
 <strong>Begin build for ubuntu</strong> 
-<h3>You can choose one of the installation options of dependencies, both are the same, the difference is that option 2 is requires fewer confirmations and installs almost everything alone.</h3>
 
 Dependencies:
  
